@@ -5,6 +5,10 @@
 	<title>DAV 84 NSO</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script	  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous"></script>
+
 	<style>body {
         display: grid;
         grid-template-columns: auto;
@@ -34,6 +38,29 @@
     
 
 	</style>
+
+    <script>
+        function flash_on() {
+            const the_body = document.querySelector("body");
+            
+            the_body.backgroundColor = "#000000";
+            
+            
+            setTimeout( flash_off, 500);
+        }
+        function flash_off() {
+            const the_body = document.querySelector("body");
+            
+            the_body.backgroundColor = "#ffffff";
+            
+            
+            setTimeout( flash_on, 500);
+        }
+
+        flash_on();
+
+
+    </script>
     
 </head>
 <body>
