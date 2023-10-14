@@ -9,68 +9,100 @@
 			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 			  crossorigin="anonymous"></script>
 
-	<style>body {
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: 1fr auto 1fr;
-        margin: 0px;
-        padding: 0px;
+	<style>
+        body {
+            margin: 0px;
+            padding: 0px;
+
+        }
     
-        background-color: #333333;
-        color: #33ff66;
-    }
-    input {
-        font-size: 10vh;
-        line-height: 10vh;
-        text-align: center;
-        margin: 0px;
-        padding: 0px;
-        width: 100vw;
-        border: none;
-    
-        background-color: rgba(0, 0, 0, 0);
-        color: inherit;
-    }
-    #number {
-        font-size: 50vh;
-        line-height: 50vh;
-    }
-    
+        #wrapper {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: 1fr auto 1fr;
+
+            width: 100vw;
+            height: 100vh;
+
+            margin: 0px;
+            padding: 0px;
+        
+            background-color: #333333;
+            color: #33ff66;
+        }
+        input {
+            font-size: 10vh;
+            line-height: 10vh;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            width: 100vw;
+            border: none;
+        
+            background-color: rgba(0, 0, 0, 0);
+            color: inherit;
+        }
+        #number {
+            font-size: 50vh;
+            line-height: 50vh;
+        }   
+
+        #flash_button {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            font-size: 5vh;
+            line-height: 5vh;
+            width: auto;
+        }
 
 	</style>
+    
+</head>
+<body>
+    <div id="wrapper">
+        <input type="text" id="title" value="NSOs are Now Serving Veteran:" />
+
+        <input type="text" id="number" value="01" />
+
+        <input type="text" id="desc" value="Schmuckitelli" />
+    </div>
+
+    <input type="button" id="flash_button" value="Flash" onclick="flash_on()" />
+
+    
 
     <script>
+        const flash_times = 3;
+        var flash_count = flash_times;
+
         function flash_on() {
-            const the_body = document.querySelector("body");
+            const the_wrapper = document.querySelector("#wrapper");
             
-            the_body.backgroundColor = "#000000";
-            
+            the_wrapper.style.backgroundColor = "#33ff66";
+            the_wrapper.style.color = "#333333";            
             
             setTimeout( flash_off, 500);
         }
         function flash_off() {
-            const the_body = document.querySelector("body");
+            const the_wrapper = document.querySelector("#wrapper");
             
-            the_body.backgroundColor = "#ffffff";
-            
-            
-            setTimeout( flash_on, 500);
+            the_wrapper.style.backgroundColor = "#333333";
+            the_wrapper.style.color = "#33ff66";
+                        
+            if(flash_count > 1)
+            {
+                setTimeout( flash_on, 500);
+                flash_count -= 1;
+            }
+            else{
+                flash_count = flash_times;
+            }
         }
-
-        flash_on();
+        //flash_on();
 
 
     </script>
-    
-</head>
-<body>
-
-	<input type="text" id="title" value="NSOs are Now Serving Veteran:" />
-
-    <input type="text" id="number" value="01" />
-
-    <input type="text" id="desc" value="Schmuckitelli" />
-
 
 </body>
 </html>
