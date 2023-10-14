@@ -19,8 +19,13 @@
     
         #wrapper {
             display: grid;
-            grid-template-columns: auto;
+            grid-template-columns: 1fr auto 1fr;
             grid-template-rows: 1fr auto 1fr;
+            
+            grid-template-areas:
+                ". title ."
+                ". number ."
+                ". desc .";
 
             width: 100vw;
             height: 100vh;
@@ -32,20 +37,27 @@
             color: #33ff66;
         }
         input {
-            font-size: 10vh;
-            line-height: 10vh;
+            font-size: min(10vw, 10vh);
+            line-height: min(10vw, 10vh);
             text-align: center;
             margin: 0px;
             padding: 0px;
-            width: 100vw;
+            width: min(100vw, 100vh);
             border: none;
         
             background-color: rgba(0, 0, 0, 0);
             color: inherit;
         }
+        #title {
+            grid-area: title;
+        }   
         #number {
+            grid-area: number;
             font-size: 50vh;
             line-height: 50vh;
+        }   
+        #desc {
+            grid-area: desc;
         }   
 
         #flash_button {
